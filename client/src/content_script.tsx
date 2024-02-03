@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Example from "./components/Example";
-import "./index.css";
+import App from "./App";
 
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   if (msg.color) {
@@ -20,13 +19,10 @@ const parentNode = document.getElementsByClassName(
 if (parentNode) {
   const targetNode = document.createElement("div");
   targetNode.id = "targetDiv";
+
   parentNode[0].insertBefore(targetNode, parentNode[0].firstChild);
 
   const root = createRoot(targetNode);
 
-  root.render(
-    <React.StrictMode>
-      <Example />
-    </React.StrictMode>
-  );
+  root.render(<App />);
 }

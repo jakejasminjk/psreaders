@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
+import "./style.css";
 
 const Popup = () => {
   const [count, setCount] = useState(0);
@@ -34,6 +35,7 @@ const Popup = () => {
 
   return (
     <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <ul style={{ minWidth: "700px" }}>
         <li>Current URL: {currentURL}</li>
         <li>Current Time: {new Date().toLocaleTimeString()}</li>
@@ -56,3 +58,5 @@ root.render(
     <Popup />
   </React.StrictMode>
 );
+
+export default Popup
