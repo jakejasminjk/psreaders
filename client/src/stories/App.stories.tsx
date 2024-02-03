@@ -14,12 +14,6 @@ export default {
 
 const Template: ComponentStory<typeof App> = (args) => <App />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  user: {
-    name: "Jane Doe",
-  },
-};
+export const Default = Template.bind({});
+Default.args = {};
 
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
