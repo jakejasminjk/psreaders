@@ -4,8 +4,9 @@ import "./style.css";
 
 const App = () => {
   return (
-    <div className="container udemy-container">
+    <div className="container udemy-container bg-gray-700">
       <h1 className="text-3xl font-bold">PS Reader</h1>
+      <div className="grid-cols-3"></div>
       <Example />
     </div>
   );
