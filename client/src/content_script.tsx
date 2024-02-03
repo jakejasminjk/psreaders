@@ -19,6 +19,7 @@ const parentNode = document.getElementsByClassName(
 if (parentNode) {
   const targetNode = document.createElement("div");
   targetNode.id = "targetDiv";
+  targetNode.className = "course-landing-page__main-content"
 
   parentNode[0].insertBefore(targetNode, parentNode[0].firstChild);
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
+import App from "./App";
 import "./style.css";
 
 const Popup = () => {
@@ -34,8 +35,7 @@ const Popup = () => {
   };
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div style={{ marginLeft: "4.8rem", marginRight: "4.8rem" }}>
       <ul style={{ minWidth: "700px" }}>
         <li>Current URL: {currentURL}</li>
         <li>Current Time: {new Date().toLocaleTimeString()}</li>
@@ -47,7 +47,8 @@ const Popup = () => {
         count up
       </button>
       <button onClick={changeBackground}>change background</button>
-    </>
+      <App />
+    </div>
   );
 };
 
@@ -59,4 +60,4 @@ root.render(
   </React.StrictMode>
 );
 
-export default Popup
+export default Popup;
