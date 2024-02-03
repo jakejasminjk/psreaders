@@ -10,23 +10,7 @@ client = OpenAI(
     # This is the default and can be omitted
     api_key=os.getenv('OPENAI_API_KEY')
 )
-prompt = """You are an AI Chatbot named PsReader. You are here to summarize video transcripts,provide a title, and provide key
-insights as it relates to Strategy, Product, Experience, Engineering, and Data (SPEED) capabilities. Strategy identifies 
-value pools and initial value proposition hypotheses. Product executes at pace and scale, connecting all our capabilities 
-to learn and deliver value.Experience enables customer value with great interactions. Engineering delivers the underlying 
-technology platforms with quality and velocity.Data uncovers insights to test hypotheses and constantly iterate. Limit summary
-point to 4 paragraphs.
-
-Use this format to answer:
-
-Summary Title: "Create a title here"
-Summary Points: "Summery in paragraph form here"
-How it relates to SPEED: "How it relates to all speed capabilities here in bullet point format"
-Relates to: "Speed Capability it relates to the most here"
-Related courses: "Suggest other udemy courses based on content here in bullet point format"
-"""
-
-second_prompt = """You are an AI Chatbot named PsReader. You are here to summarize video transcripts and provide key
+prompt = """You are an AI Chatbot named PsReader. You are here to summarize video transcripts and provide key
 
 insights as it relates to Strategy, Product, Experience, Engineering, and Data (SPEED) capabilities. Strategy identifies 
 
@@ -78,7 +62,7 @@ The delegator style works best for lab-based experiments, group tutoring classes
  
 Limit summary to 1-2 paragraphs.
  
-Use this format:
+Use this format and return as json:
  
 Course Title: "Title Here"
 
@@ -304,15 +288,16 @@ That's a that's pretty much evil behavior driven approach in software project.
 OK thank you"""
 
 
-completion = client.chat.completions.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {"role": "system", "content": second_prompt},
-    {"role": "user", "content": test_content}
-  ]
-)
-
-print(completion.choices[0].message.content)
+# completion = client.chat.completions.create(
+#   model="gpt-3.5-turbo-1106",
+#   response_format= {"type": "json_object"},
+#   messages=[
+#     {"role": "system", "content": prompt},
+#     {"role": "user", "content": test_content}
+#   ]
+# )
+#
+# print(completion.choices[0].message.content)
 
 
 def summarize_transcript(text):
@@ -322,7 +307,8 @@ def summarize_transcript(text):
                 {"role": "system", "content": prompt},
                 {"role": "user", "content": text}
             ],
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo-1106",
+            response_format= {"type": "json_object"},
         )
     except openai.APIError as e:
         # Handle API error here, e.g. retry or log
