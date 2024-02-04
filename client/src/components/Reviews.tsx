@@ -28,7 +28,7 @@ const Reviews = () => {
         <Typography variant="h5" color="blue-gray" className="mb-2 -mt-5">
           Reviews Highlights
         </Typography>
-        <Typography className="my-0 font-bold">Customers say</Typography>
+        <Typography className="my-0 font-bold">Students say</Typography>
         {loading ? (
           <>
             <ParagraphSkeleton />
@@ -51,7 +51,9 @@ const Reviews = () => {
           </>
         ) : (
           <>
-            <Typography className="my-0">{displayText}</Typography>
+            <Typography className="my-0" aria-label={data["Summary"]}>
+              {displayText}
+            </Typography>
             <Typography variant="small" className="mt-0 mb-2 italic">
               AI-generated from the text of student reviews
             </Typography>
