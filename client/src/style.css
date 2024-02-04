@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.udemy-container {
+    border: 1px solid #d1d7dc;
+    padding: 2.4rem 0;
+    padding-bottom: 1.6rem;
+    margin-bottom: 3.2rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+}
