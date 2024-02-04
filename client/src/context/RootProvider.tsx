@@ -9,7 +9,7 @@ import React, {
 import axios from "axios";
 import { grabCourseTranscript } from "../utils";
 import AppConfig from "../config/AppConfig";
-import { HomeMockResponse } from "./MockResponses";
+import { HomeMockResponse, ReviewMockResponse } from "./MockResponses";
 
 interface IApplicationContext {
   data: {
@@ -17,6 +17,9 @@ interface IApplicationContext {
     "Summary Points"?: string;
     "Teaching Style"?: string;
     "How it relates to SPEED"?: string;
+    Summary: string;
+    Pros: string[];
+    Cons: string[];
   };
   loading: boolean;
 }
@@ -27,6 +30,7 @@ const defaultContext: IApplicationContext = {
     "Summary Points": "",
     "Teaching Style": "",
     "How it relates to SPEED": "",
+    ...ReviewMockResponse,
   },
   loading: true,
 };
@@ -59,7 +63,7 @@ export const RootProvider: FC<PropsWithChildren> = ({ children }) => {
         }
         console.log(response.data);
         await delay(delayTime);
-        setApiData(response.data);
+        setApiData((prevData) => ({ ...prevData, ...response.data }));
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {

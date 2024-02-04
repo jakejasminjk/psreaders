@@ -13,7 +13,7 @@ const App = () => {
     <RootProvider>
       <div className="container udemy-container">
         <div className="flex items-center gap-5">
-          <Typography variant="h2">PS Reader</Typography>
+          <Typography variant="h2">PS Read</Typography>
           <TeachingStyle />
         </div>
         <AlternativeTitle />

@@ -7,6 +7,7 @@ import {
 } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { useRoot } from "../context/RootProvider";
+import { MAX_CHAR_LENGTH } from "../utils/constant";
 import ParagraphSkeleton from "./ParagraphSkeleton";
 
 const SPEED = () => {
@@ -16,13 +17,13 @@ const SPEED = () => {
   let displayText = "";
   if (data["How it relates to SPEED"]) {
     displayText = data["How it relates to SPEED"];
-    if (displayText.length > 130 && !didReadMore) {
-      displayText = `${displayText.slice(0, 130)}...`;
+    if (displayText.length > MAX_CHAR_LENGTH && !didReadMore) {
+      displayText = `${displayText.slice(0, MAX_CHAR_LENGTH)}...`;
     }
   }
 
   return (
-    <Card className="">
+    <Card>
       <CardBody>
         <Typography variant="h5" color="blue-gray" className="mb-2">
           SPEED
@@ -30,7 +31,7 @@ const SPEED = () => {
         <Typography>{displayText || ""}</Typography>
         {loading && <ParagraphSkeleton />}
       </CardBody>
-      {displayText.length > 130 && (
+      {displayText.length > MAX_CHAR_LENGTH && (
         <CardFooter className="pt-0">
           <Button
             onClick={() => {

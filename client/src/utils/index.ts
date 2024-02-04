@@ -213,3 +213,27 @@ export const grabCourseTranscript = () => {
     OK thank you
     `;
 };
+
+export const grabCourseReviews = () => {
+  return `
+    1. Really liked this course, very helpful for improving testing in React. Solid overview of RTL and the combination of the notebook app and the larger project with real testing examples worked well. I felt like it was missing some more advanced testing examples, like testing hooks, and some test env setup like coverage reporting, globals etc.
+    2. Stephen consistently produces high-quality content every time. I have already passed three courses, and all of them were outstanding and easy to understand. Thank you for your efforts!
+    3. Amazing explanations and easy to understand. I would recommend if you need an in depth basis of understanding for Jest and React Testing Library.
+    4. Right off the bat, I would like to say that I already had several years of experience with jest. I took this course, mainly to fill the gaps that I am missing. I am really pleased with this course, it helped me on my thought process.
+    5. I would omit the first part where you are using vs code in the cloud. Could never find that Test menu. Also, debugging unit tests? I skipped that part but I still watched the lectures. In all great course, would of been even better with TypeScript! But anyways, still, great course!
+    7. Great course. It is obvious he cares about teaching. Thanks for all you hard work.
+    8. Overall the course is great, however I think it's missing a section on how to test hooks and how to mock hooks in react componenets. Would also love a section on how to test function calls
+    9. Initially it seems very simple, then as soon as the parts about data fetch are introduced it introduces many complex concepts with explanations that are in my opinion hurried, the course in the final part becomes very difficult to follow
+    10. I love courses from stephen, but I've to say that in this case just using create react app built application and very low info on jest is a bummer. Expected more jest related content, there is not even a jest.config.js file as it will not work out of the box with cra apps which are dead now if you're working with new app. This needs a major upgrade, it could have been a 2hr beginner course tbh
+    11. This is more about beginners. Also it only focuses on component testing.
+    12. This course is exactly what I was looking for, a guide to ease me into testing in React, and explain the way of thinking that should be implemented when testing. The examples and code demos are also very helpful.
+    13. Thanks for your course.That really great, save me more time to understand and work with testing library, also had comprehensive view about testing, thank you so much
+    14. I could not always follow, but replayed the parts, especially at the end, over and over again, until I saw what you did there. Nice job, your teaching style really connects with my learning style, because you repeat important stuff over and over again, which I very much liked and hopefully never forget ;)
+    15. Overall the course is good for beginner but I would like to see another module for react router testing
+    16. This course is a wonderful job by Stephen. Thinking of making this course in the first place is so thoughtful of him. Stephen has a way of breaking down complex and intertwined concepts into absorbable pieces. Many times when he wanted to provide a 'complex' solution to a testing problem, he'd display a snapshot of what is to be done before he actually starts coding. Many times I wonder how I was able to easily understand certain difficult concepts. I think Stephen is also a psychologist, understanding how the human brain works. Kudos, Stephen!
+    17. Still I am enjoying course contents and excellent explanation. Stephen is really a good teacher. My great thanks to him for his efforts on this course.
+    18. I recently completed the "React Testing Library and Jest: The Complete Guide" course on Udemy, instructed by Stephen Grider, and I must say it was an exceptional learning experience. As someone with prior knowledge of testing, this course took my understanding to advanced levels. The instructor, Stephen Grider, did a remarkable job in presenting the material in a comprehensive and thorough manner. The course was incredibly complete, covering all essential aspects of React Testing Library and Jest. The way Grider breaks down complex concepts into digestible, practical lessons is commendable. The practical examples and hands-on exercises helped solidify my understanding of the testing principles and best practices. I appreciated the instructor's attention to detail and the clear explanations throughout the course. By the end of the course, I felt confident in my ability to write effective tests for my React applications. Grider's teaching style and the depth of content truly exceeded my expectations. I highly recommend this course to anyone looking to master React testing and take their skills to the next level.Kudos to Stephen Grider for putting together such a valuable and comprehensive course!
+    19. It just keeps getting better as I progress through the sections
+    20. Really good walk through of basic tests. Thorough explanations of what gets returned based on the prefix used for testing (i.e., getBy..., queryBy..., findBy...). Glad to see bug report examples and seeing problems arise with 3rd party software.
+    `;
+};

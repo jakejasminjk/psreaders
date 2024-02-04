@@ -3,7 +3,7 @@ interface IAppConfig {
 }
 
 const AppConfig: IAppConfig = {
-  useMockAPIResponses: true,
+  useMockAPIResponses: false,
 };
 
 export default AppConfig;

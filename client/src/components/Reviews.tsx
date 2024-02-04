@@ -1,38 +1,76 @@
-import React from "react";
-import { Typography, Avatar, Rating } from "@material-tailwind/react";
-
-const data = {
-  name: "Jerry",
-  rating: 4,
-  comment: "This course was great!",
-  role: "Lead engineer",
-};
+import React, { useState } from "react";
+import {
+  Typography,
+  Card,
+  CardBody,
+  CardFooter,
+  Button,
+} from "@material-tailwind/react";
+import ParagraphSkeleton from "./ParagraphSkeleton";
+import { useRoot } from "../context/RootProvider";
+import ProsConsChipSection from "./ProsConsChipSection";
 
 const Reviews = () => {
+  const { data, loading } = useRoot();
+  const [didReadMore, setDidReadMore] = useState(false);
+
+  let displayText = "";
+  if (data["Summary"]) {
+    displayText = data["Summary"];
+    if (displayText.length > 130 && !didReadMore) {
+      displayText = `${displayText.slice(0, 130)}...`;
+    }
+  }
+
   return (
-    <div className="px-8 text-center flex flex-col items-center justify-center">
-      <Typography
-        variant="small"
-        color="blue-gray"
-        className="mb-6 font-medium"
-      >
-        &quot;{data.comment}&quot;
-      </Typography>
-      <Avatar
-        src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-        alt="image"
-        size="sm"
-        withBorder={true}
-        className="p-0.5"
-      />
-      <Typography variant="small" className="mt-4">
-        {data.name}
-      </Typography>
-      <Typography variant="paragraph" color="gray" className="mb-4 font-normal">
-        {data.role}
-      </Typography>
-      <Rating value={data.rating} readonly />
-    </div>
+    <Card color="transparent" shadow={false}>
+      <CardBody>
+        <Typography variant="h5" color="blue-gray" className="mb-2 -mt-5">
+          Reviews Highlights
+        </Typography>
+        <Typography className="my-0 font-bold">Customers say</Typography>
+        {loading ? (
+          <>
+            <ParagraphSkeleton />
+            <div className="max-w-full animate-pulse flex gap-1">
+              <Typography
+                as="div"
+                variant="h1"
+                className="h-4 w-20 rounded-full bg-gray-300"
+              >
+                &nbsp;
+              </Typography>
+              <Typography
+                as="div"
+                variant="h1"
+                className="h-4 w-20 rounded-full bg-gray-300"
+              >
+                &nbsp;
+              </Typography>
+            </div>
+          </>
+        ) : (
+          <>
+            <Typography className="my-0">{displayText}</Typography>
+            <Typography variant="small" className="mt-0 mb-2 italic">
+              AI-generated from the text of student reviews
+            </Typography>
+            <ProsConsChipSection />
+          </>
+        )}
+        {!loading && displayText.length > 130 && (
+          <CardFooter className="pt-0">
+            <Button
+              onClick={() => {
+                setDidReadMore((prevBool) => !prevBool);
+              }}
+            >
+              Read More
+            </Button>
+          </CardFooter>
+        )}
+      </CardBody>
+    </Card>
   );
 };
 
