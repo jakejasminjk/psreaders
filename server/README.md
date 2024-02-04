@@ -21,6 +21,12 @@ Make sure you have the following installed on your system:
     pip install -r requirements.txt
     ```
 
+3. **Setup environment variables**
+    Create a `.env` file that contains your openAI API key for the server to reference
+    ```bash
+    OPENAI_API_KEY=<YOUR_KEY_HERE>
+    ```
+
 Continue on with the below steps before starting `main.py`.
 
 # Setting up Self-Signed Certificates for Flask using mkcert
