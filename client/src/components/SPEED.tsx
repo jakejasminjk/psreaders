@@ -28,7 +28,9 @@ const SPEED = () => {
         <Typography variant="h5" color="blue-gray" className="mb-2">
           SPEED
         </Typography>
-        <Typography>{displayText || ""}</Typography>
+        <Typography aria-label={data["How it relates to SPEED"]}>
+          {displayText || ""}
+        </Typography>
         {loading && <ParagraphSkeleton />}
       </CardBody>
       {displayText.length > MAX_CHAR_LENGTH && (

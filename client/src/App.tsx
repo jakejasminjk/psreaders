@@ -7,22 +7,25 @@ import SPEED from "./components/SPEED";
 import Reviews from "./components/Reviews";
 import { RootProvider } from "./context/RootProvider";
 import AlternativeTitle from "./components/AlternativeTitle";
+import { ReviewsProvider } from "./context/ReviewsProvider";
 
 const App = () => {
   return (
     <RootProvider>
-      <div className="container udemy-container">
-        <div className="flex items-center gap-5">
-          <Typography variant="h2">PS Read</Typography>
-          <TeachingStyle />
+      <ReviewsProvider>
+        <div className="container udemy-container">
+          <div className="flex items-center gap-5">
+            <Typography variant="h2">PS Read</Typography>
+            <TeachingStyle />
+          </div>
+          <AlternativeTitle />
+          <div className="grid grid-cols-3 gap-3">
+            <Summary />
+            <SPEED />
+            <Reviews />
+          </div>
         </div>
-        <AlternativeTitle />
-        <div className="grid grid-cols-3 gap-3">
-          <Summary />
-          <SPEED />
-          <Reviews />
-        </div>
-      </div>
+      </ReviewsProvider>
     </RootProvider>
   );
 };
