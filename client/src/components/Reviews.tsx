@@ -28,7 +28,7 @@ const Reviews = () => {
         <Typography variant="h5" color="blue-gray" className="mb-2 -mt-5">
           Reviews Highlights
         </Typography>
-        <Typography className="my-0 font-bold">Students say</Typography>
+        <Typography className="my-0 font-bold">Customers say</Typography>
         {loading ? (
           <>
             <ParagraphSkeleton />

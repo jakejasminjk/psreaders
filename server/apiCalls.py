@@ -330,7 +330,7 @@ Limit to at most four items total for pros and cons. Avoid nouns for pros and co
 
 Use this format and return as json:
 
-Summary: "Students like the course for its comprehensive content, solid explanations, and practical examples, but some wish for more advanced topics such as testing hooks, TypeScript integration, and additional modules like React Router testing. Overall, the instructor's teaching style and the course's depth are appreciated, making it a valuable resource for mastering React testing.",
+Summary: "Customers like the course for its comprehensive content, solid explanations, and practical examples, but some wish for more advanced topics such as testing hooks, TypeScript integration, and additional modules like React Router testing. Overall, the instructor's teaching style and the course's depth are appreciated, making it a valuable resource for mastering React testing.",
 
 Pros: ["Comprehensive", "Practical", "Engaging"],
 
