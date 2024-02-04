@@ -7,11 +7,11 @@ import {
   Button,
 } from "@material-tailwind/react";
 import ParagraphSkeleton from "./ParagraphSkeleton";
-import { useRoot } from "../context/RootProvider";
 import ProsConsChipSection from "./ProsConsChipSection";
+import { useReviews } from "../context/ReviewsProvider";
 
 const Reviews = () => {
-  const { data, loading } = useRoot();
+  const { data, loading } = useReviews();
   const [didReadMore, setDidReadMore] = useState(false);
 
   let displayText = "";

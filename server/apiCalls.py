@@ -320,3 +320,40 @@ def summarize_transcript(text):
         # Handle rate limit error (we recommend using exponential backoff)
         return f"OpenAI API request exceeded rate limit: {e}"
     return completion.choices[0].message.content
+
+prompt2 =  """You are an AI Chatbot named PsReader. You are here to summarize a given list of reviews into 
+at one sentence that is brief and general. (no need to reference the course name or author specifically in the sentence).
+
+Additionally, list the pros and cons as tokens of at most two words.
+
+Limit to at most four items total for pros and cons. Avoid nouns for pros and cons, stick to adjectives.
+
+Use this format and return as json:
+
+Summary: "Students like the course for its comprehensive content, solid explanations, and practical examples, but some wish for more advanced topics such as testing hooks, TypeScript integration, and additional modules like React Router testing. Overall, the instructor's teaching style and the course's depth are appreciated, making it a valuable resource for mastering React testing.",
+
+Pros: ["Comprehensive", "Practical", "Engaging"],
+
+Cons: ["Repetitive"],
+"""
+
+def parse_reviews(text):
+    try:
+        completion = client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": prompt2},
+                {"role": "user", "content": text}
+            ],
+            model="gpt-3.5-turbo-1106",
+            response_format= {"type": "json_object"},
+        )
+    except openai.APIError as e:
+        # Handle API error here, e.g. retry or log
+        return f"OpenAI API returned an API Error: {e}"
+    except openai.APIConnectionError as e:
+        # Handle connection error here
+        return f"Failed to connect to OpenAI API: {e}"
+    except openai.RateLimitError as e:
+        # Handle rate limit error (we recommend using exponential backoff)
+        return f"OpenAI API request exceeded rate limit: {e}"
+    return completion.choices[0].message.content
