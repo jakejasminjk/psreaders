@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./style.css";
 
 const Popup = () => {
   const [count, setCount] = useState(0);
@@ -47,7 +45,6 @@ const Popup = () => {
         count up
       </button>
       <button onClick={changeBackground}>change background</button>
-      <App />
     </div>
   );
 };

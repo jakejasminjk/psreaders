@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
+import App from "../App";
 
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   if (msg.color) {
@@ -16,7 +16,7 @@ const parentNode = document.getElementsByClassName(
   "paid-course-landing-page__body"
 );
 
-if (parentNode) {
+if (parentNode && parentNode.length > 0) {
   const targetNode = document.createElement("div");
   targetNode.id = "targetDiv";
   targetNode.className = "course-landing-page__main-content"
