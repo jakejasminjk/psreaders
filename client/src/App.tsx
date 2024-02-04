@@ -5,20 +5,25 @@ import TeachingStyle from "./components/TeachingStyle";
 import Summary from "./components/Summary";
 import SPEED from "./components/SPEED";
 import Reviews from "./components/Reviews";
+import { RootProvider } from "./context/RootProvider";
+import AlternativeTitle from "./components/AlternativeTitle";
 
 const App = () => {
   return (
-    <div className="container udemy-container">
-      <div className="flex items-center gap-5">
-        <Typography variant="h2">PS Reader</Typography>
-        <TeachingStyle />
+    <RootProvider>
+      <div className="container udemy-container">
+        <div className="flex items-center gap-5">
+          <Typography variant="h2">PS Read</Typography>
+          <TeachingStyle />
+        </div>
+        <AlternativeTitle />
+        <div className="grid grid-cols-3 gap-3">
+          <Summary />
+          <SPEED />
+          <Reviews />
+        </div>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        <Summary />
-        <SPEED />
-        <Reviews />
-      </div>
-    </div>
+    </RootProvider>
   );
 };
 
