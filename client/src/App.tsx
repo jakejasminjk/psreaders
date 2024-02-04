@@ -4,6 +4,7 @@ import { Typography } from "@material-tailwind/react";
 import TeachingStyle from "./components/TeachingStyle";
 import Summary from "./components/Summary";
 import SPEED from "./components/SPEED";
+import Reviews from "./components/Reviews";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <div className="grid grid-cols-3 gap-3">
         <Summary />
         <SPEED />
-        <Summary />
+        <Reviews />
       </div>
     </div>
   );
